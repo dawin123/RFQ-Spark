@@ -1,9 +1,7 @@
 import static spark.Spark.*;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -28,9 +26,44 @@ public class Main {
         post("/getRFQList", "application/json", (request, response) -> {
             System.out.println(request.body());
             RFQRequest rfqRequest = new Gson().fromJson(request.body(), RFQRequest.class);
-            //process list here
-            return filterList(rfqRequest, rfqList);
+            Map responseMap = new HashMap();
+
+            //filter List
+            List<RFQ> filteredList = filterList(rfqRequest, rfqList);
+
+            //divide by pagination
+            List<RFQ> dividedList = divideList(rfqRequest, filteredList);
+
+            responseMap.put("rfqList", dividedList);
+            responseMap.put("totalPageNo", countTotalPageNo(rfqRequest, filteredList));
+
+            return responseMap;
         }, new JsonTransformer());
+    }
+
+    static int countTotalPageNo(RFQRequest rfqRequest, List<RFQ> filteredList){
+        if(filteredList.size() < 1){
+            return 1;
+        }
+        int a = filteredList.size();
+        int b = Integer.parseInt(rfqRequest.getItemPerPage());
+        int n = a / b + ((a % b == 0) ? 0 : 1);
+
+        return n;
+    }
+
+    static List<RFQ> divideList(RFQRequest rfqRequest, List<RFQ> rfqList){
+        List<RFQ> result = new ArrayList<>();
+        int currentPageNo = Integer.parseInt(rfqRequest.getCurrentPageNo());
+        int itemPerPage = Integer.parseInt(rfqRequest.getItemPerPage());
+        int startIndex = currentPageNo * itemPerPage - itemPerPage;
+        int remainingElement = rfqList.size() - startIndex;
+        int maxLength = Math.min(remainingElement, itemPerPage);
+        
+        for(int i=startIndex;i<maxLength;i++){
+            result.add(rfqList.get(i));
+        }
+        return result;
     }
 
     static List<RFQ> filterList(RFQRequest rfqRequest, List<RFQ> rfqList){
