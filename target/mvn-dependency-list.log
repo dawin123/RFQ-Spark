@@ -10,6 +10,7 @@ The following files have been resolved:
    org.eclipse.jetty.websocket:websocket-api:jar:9.3.6.v20151106:compile
    org.eclipse.jetty.websocket:websocket-servlet:jar:9.3.6.v20151106:compile
    com.sparkjava:spark-core:jar:2.5:compile
+   com.google.code.gson:gson:jar:2.8.6:compile
    org.eclipse.jetty:jetty-security:jar:9.3.6.v20151106:compile
    org.eclipse.jetty:jetty-util:jar:9.3.6.v20151106:compile
    org.eclipse.jetty:jetty-http:jar:9.3.6.v20151106:compile
