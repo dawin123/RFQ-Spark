@@ -86,9 +86,9 @@ public class Main {
         int itemPerPage = Integer.parseInt(rfqRequest.getItemPerPage());
         int startIndex = currentPageNo * itemPerPage - itemPerPage;
         int remainingElement = rfqList.size() - startIndex;
-        int maxLength = Math.min(remainingElement, itemPerPage);
+        int maxIndex = Math.min(startIndex + itemPerPage, startIndex+remainingElement);
 
-        for(int i=startIndex;i<maxLength;i++){
+        for(int i=startIndex;i<maxIndex;i++){
             result.add(rfqList.get(i));
         }
         return result;
