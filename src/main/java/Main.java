@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         after((Filter) (request, response) -> {
             response.header("Access-Control-Allow-Origin", "*");
-            response.header("Access-Control-Allow-Methods", "GET,POST");
+            response.header("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
         });
 
         get("/hello", "application/json", (request, response) -> {
