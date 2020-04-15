@@ -16,11 +16,12 @@ public class RFQRequest {
     private String marketFilter;
     private String currentPageNo;
     private String itemPerPage;
+    private String dateSort;
 
     public RFQRequest(String selectedTab, String rfqFilter, String quoteIdFilter, String lastUpdatedFilter,
                       String senderFilter, String subjectFilter, String productFilter, String percentageFilter,
                       String quantityFilter, String quoteStatusFilter, String marketFilter, String currentPageNo,
-                      String itemPerPage){
+                      String itemPerPage, String dateSort){
         this.selectedTab = selectedTab;
         this.rfqFilter = rfqFilter;
         this.quoteIdFilter = quoteIdFilter;
@@ -34,6 +35,7 @@ public class RFQRequest {
         this.marketFilter = marketFilter;
         this.currentPageNo = currentPageNo;
         this.itemPerPage = itemPerPage;
+        this.dateSort = dateSort;
     }
 
     public String getSelectedTab() {
@@ -116,5 +118,9 @@ public class RFQRequest {
 
     public String getItemPerPage() {
         return itemPerPage;
+    }
+
+    public String getDateSort() {
+        return dateSort;
     }
 }

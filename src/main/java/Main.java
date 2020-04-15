@@ -1,7 +1,8 @@
 import static spark.Spark.*;
 import com.google.gson.Gson;
-import spark.Filter;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -10,6 +11,7 @@ public class Main {
     public static String TO_BE_REVIEWED = "TO_BE_REVIEWED";
     public static String IN_REVIEW = "IN_REVIEW";
     public static String REVIEWED = "REVIEWED";
+    public static String LEAST_RECENT = "LEAST_RECENT";
 
     public static void main(String[] args) {
         List<RFQ> rfqList = generateRFQList();
@@ -50,8 +52,11 @@ public class Main {
             //filter List
             List<RFQ> filteredList = filterList(rfqRequest, selectedList);
 
+            //sort list
+            List<RFQ> sortedList = sortList(rfqRequest, filteredList);
+
             //divide by pagination
-            List<RFQ> dividedList = divideList(rfqRequest, filteredList);
+            List<RFQ> dividedList = divideList(rfqRequest, sortedList);
 
             responseMap.put("rfqList", dividedList);
             responseMap.put("totalPageNo", countTotalPageNo(rfqRequest, filteredList));
@@ -85,6 +90,32 @@ public class Main {
             default:
                 return quoteList;
         }
+    }
+
+    static List<RFQ> sortList(RFQRequest rfqRequest, List<RFQ> rfqList) {
+        List<RFQ> result = rfqList;
+        SimpleDateFormat sdformat = new SimpleDateFormat("yyyy-MM-dd");
+
+        Collections.sort(result, new Comparator<RFQ>() {
+            public int compare(RFQ o1, RFQ o2) {
+                Date d1 = new Date();
+                Date d2 = new Date();
+
+                try {
+                    d1 = sdformat.parse(o1.getLastUpdated());
+                    d2 = sdformat.parse(o2.getLastUpdated());
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                if(rfqRequest.getDateSort().equals(LEAST_RECENT)){
+                    return d1.compareTo(d2);
+                } else {
+                    return d2.compareTo(d1);
+                }
+            }
+        });
+
+        return result;
     }
 
     static List<RFQ> divideList(RFQRequest rfqRequest, List<RFQ> rfqList){
