@@ -51,6 +51,7 @@ public class Main {
 
             responseMap.put("rfqList", dividedList);
             responseMap.put("totalPageNo", countTotalPageNo(rfqRequest, filteredList));
+            responseMap.put("totalCount", rfqList.size());
 
             return responseMap;
         }, new JsonTransformer());
