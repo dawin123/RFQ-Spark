@@ -12,6 +12,10 @@ public class Main {
     public static String REVIEWED = "REVIEWED";
 
     public static void main(String[] args) {
+        List<RFQ> rfqList = generateRFQList();
+        List<RFQ> quoteList = generateQuoteList();
+        List<RFQ> exceptionList = new ArrayList<>();
+
         options("/*", (req, res) -> {
             String accessControlRequestHeaders = req.headers("Access-Control-Request-Headers");
             if (accessControlRequestHeaders != null) {
@@ -40,18 +44,20 @@ public class Main {
             RFQRequest rfqRequest = new Gson().fromJson(request.body(), RFQRequest.class);
 
             // get list based on selected tab
-            List<RFQ> rfqList = getList(rfqRequest);
+            List<RFQ> selectedList = getList(rfqRequest, rfqList, quoteList, exceptionList);
             Map responseMap = new HashMap();
 
             //filter List
-            List<RFQ> filteredList = filterList(rfqRequest, rfqList);
+            List<RFQ> filteredList = filterList(rfqRequest, selectedList);
 
             //divide by pagination
             List<RFQ> dividedList = divideList(rfqRequest, filteredList);
 
             responseMap.put("rfqList", dividedList);
             responseMap.put("totalPageNo", countTotalPageNo(rfqRequest, filteredList));
-            responseMap.put("totalCount", rfqList.size());
+            responseMap.put("totalRFQCount", rfqList.size());
+            responseMap.put("totalQuoteCount", quoteList.size());
+            responseMap.put("totalExceptionCount", exceptionList.size());
 
             return responseMap;
         }, new JsonTransformer());
@@ -68,16 +74,16 @@ public class Main {
         return n;
     }
 
-    static List<RFQ> getList(RFQRequest rfqRequest){
+    static List<RFQ> getList(RFQRequest rfqRequest, List<RFQ> rfqList, List<RFQ> quoteList, List<RFQ> exceptionList){
         int selectedTab = Integer.parseInt(rfqRequest.getSelectedTab());
 
         switch (selectedTab){
             case 0:
-                return generateRFQList();
+                return rfqList;
             case 2:
-                return generateQuoteList();
+                return quoteList;
             default:
-                return new ArrayList<>();
+                return exceptionList;
         }
     }
 
