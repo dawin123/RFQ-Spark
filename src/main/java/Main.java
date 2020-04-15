@@ -13,8 +13,8 @@ public class Main {
 
     public static void main(String[] args) {
         List<RFQ> rfqList = generateRFQList();
-        List<RFQ> quoteList = generateQuoteList();
-        List<RFQ> exceptionList = new ArrayList<>();
+        List<RFQ> quoteList = new ArrayList<>();
+        List<RFQ> exceptionList = generateExceptionList();
 
         options("/*", (req, res) -> {
             String accessControlRequestHeaders = req.headers("Access-Control-Request-Headers");
@@ -81,9 +81,9 @@ public class Main {
             case 0:
                 return rfqList;
             case 2:
-                return quoteList;
-            default:
                 return exceptionList;
+            default:
+                return quoteList;
         }
     }
 
@@ -186,7 +186,7 @@ public class Main {
         return rfqList;
     }
 
-    static List<RFQ> generateQuoteList(){
+    static List<RFQ> generateExceptionList(){
         RFQ r1 = new RFQ("110", "200", "2020-04-12", "john.doe@gmail.com",
                 "RFQ 110", "MNO", "0.5", "100", IN_REVIEW, "SG");
         RFQ r2 = new RFQ("111", "201", "2020-04-11", "jane.doe@gmail.com",
