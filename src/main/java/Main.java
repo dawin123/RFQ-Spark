@@ -199,7 +199,7 @@ public class Main {
         RFQ r4 = new RFQ("103", "232", "2020-04-10", "kay.doe@gmail.com",
                 "RFQ 103", "XYZ", "0.30", "150", IN_REVIEW, "SG");
         RFQ r5 = new RFQ("104", "204", "2020-04-08", "john.doe@gmail.com",
-                "RFQ 104", "KLM", "0.070", "200", REVIEWED, "EU");
+                "RFQ 104", "KLM", "0.07", "200", REVIEWED, "EU");
         RFQ r6 = new RFQ("105", "205", "2020-04-07", "jake.doe@gmail.com",
                 "RFQ 105", "DEF", "0.08", "42", TO_BE_REVIEWED, "SG");
         RFQ r7 = new RFQ("106", "206", "2020-04-12", "jill.doe@gmail.com",
