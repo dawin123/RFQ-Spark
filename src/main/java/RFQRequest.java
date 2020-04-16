@@ -46,70 +46,70 @@ public class RFQRequest {
         if(rfqFilter.isEmpty()){
             return new ArrayList<>();
         }
-        return Arrays.asList(rfqFilter.replaceAll(" ", "").split(","));
+        return Arrays.asList(rfqFilter.trim().replaceAll(", ", ",").replaceAll(" ,", ",").split(","));
     }
 
     public List<String> getQuoteIdFilter() {
         if(quoteIdFilter.isEmpty()){
             return new ArrayList<>();
         }
-        return Arrays.asList(quoteIdFilter.replaceAll(" ", "").split(","));
+        return Arrays.asList(quoteIdFilter.trim().replaceAll(", ", ",").replaceAll(" ,", ",").split(","));
     }
 
     public List<String> getLastUpdatedFilter() {
         if(lastUpdatedFilter.isEmpty()){
             return new ArrayList<>();
         }
-        return Arrays.asList(lastUpdatedFilter.replaceAll(" ", "").split(","));
+        return Arrays.asList(lastUpdatedFilter.trim().replaceAll(", ", ",").replaceAll(" ,", ",").split(","));
     }
 
     public List<String> getSenderFilter() {
         if(senderFilter.isEmpty()){
             return new ArrayList<>();
         }
-        return Arrays.asList(senderFilter.replaceAll(" ", "").split(","));
+        return Arrays.asList(senderFilter.trim().replaceAll(", ", ",").replaceAll(" ,", ",").split(","));
     }
 
     public List<String> getSubjectFilter() {
         if(subjectFilter.isEmpty()){
             return new ArrayList<>();
         }
-        return Arrays.asList(subjectFilter.replaceAll(" ", "").split(","));
+        return Arrays.asList(subjectFilter.trim().replaceAll(", ", ",").replaceAll(" ,", ",").split(","));
     }
 
     public List<String> getProductFilter() {
         if(productFilter.isEmpty()){
             return new ArrayList<>();
         }
-        return Arrays.asList(productFilter.replaceAll(" ", "").split(","));
+        return Arrays.asList(productFilter.trim().replaceAll(", ", ",").replaceAll(" ,", ",").split(","));
     }
 
     public List<String> getPercentageFilter() {
         if(percentageFilter.isEmpty()){
             return new ArrayList<>();
         }
-        return Arrays.asList(percentageFilter.replaceAll(" ", "").split(","));
+        return Arrays.asList(percentageFilter.trim().replaceAll(", ", ",").replaceAll(" ,", ",").split(","));
     }
 
     public List<String> getQuantityFilter() {
         if(quantityFilter.isEmpty()){
             return new ArrayList<>();
         }
-        return Arrays.asList(quantityFilter.replaceAll(" ", "").split(","));
+        return Arrays.asList(quantityFilter.trim().replaceAll(", ", ",").replaceAll(" ,", ",").split(","));
     }
 
     public List<String> getQuoteStatusFilter() {
         if(quoteStatusFilter.isEmpty()){
             return new ArrayList<>();
         }
-        return Arrays.asList(quoteStatusFilter.replaceAll(" ", "").split(","));
+        return Arrays.asList(quoteStatusFilter.trim().replaceAll(", ", ",").replaceAll(" ,", ",").split(","));
     }
 
     public List<String> getMarketFilter() {
         if(marketFilter.isEmpty()){
             return new ArrayList<>();
         }
-        return Arrays.asList(marketFilter.replaceAll(" ", "").split(","));
+        return Arrays.asList(marketFilter.trim().replaceAll(", ", ",").replaceAll(" ,", ",").split(","));
     }
 
     public String getCurrentPageNo() {

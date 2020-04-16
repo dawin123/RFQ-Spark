@@ -191,37 +191,47 @@ public class Main {
 
     static List<RFQ> generateRFQList(){
         RFQ r1 = new RFQ("100", "200", "2020-04-14", "john.doe@gmail.com",
-                "RFQ 100", "ABC", "0.5", "100", IN_REVIEW, "SG");
+                "RFQ 100", "ABC", "0.50", "100", IN_REVIEW, "SG");
         RFQ r2 = new RFQ("101", "201", "2020-04-10", "jane.doe@gmail.com",
-                "RFQ 101", "PQR", "0.1", "10", IN_REVIEW, "SG");
+                "RFQ 101", "PQR", "0.10", "10", IN_REVIEW, "SG");
         RFQ r3 = new RFQ("102", "202", "2020-04-12", "kay.doe@gmail.com",
                 "RFQ 102", "VWX", "0.03", "200", IN_REVIEW, "US");
         RFQ r4 = new RFQ("103", "232", "2020-04-10", "kay.doe@gmail.com",
-                "RFQ 103", "XYZ", "0.3", "150", IN_REVIEW, "SG");
+                "RFQ 103", "XYZ", "0.30", "150", IN_REVIEW, "SG");
         RFQ r5 = new RFQ("104", "204", "2020-04-08", "john.doe@gmail.com",
-                "RFQ 104", "KLM", "0.07", "200", REVIEWED, "EU");
+                "RFQ 104", "KLM", "0.070", "200", REVIEWED, "EU");
         RFQ r6 = new RFQ("105", "205", "2020-04-07", "jake.doe@gmail.com",
                 "RFQ 105", "DEF", "0.08", "42", TO_BE_REVIEWED, "SG");
         RFQ r7 = new RFQ("106", "206", "2020-04-12", "jill.doe@gmail.com",
-                "RFQ 106", "GHI", "0.1", "80", TO_BE_REVIEWED, "EU");
+                "RFQ 106", "GHI", "0.10", "80", TO_BE_REVIEWED, "EU");
         RFQ r8 = new RFQ("107", "207", "2020-04-06", "john.doe@gmail.com",
-                "RFQ 107", "ABC", "1.0", "70", REVIEWED, "SG");
+                "RFQ 107", "ABC", "1.00", "70", REVIEWED, "SG");
         RFQ r9 = new RFQ("108", "208", "2020-04-05", "jill.doe@gmail.com",
-                "RFQ 108", "DEF", "0.7", "85", TO_BE_REVIEWED, "SG");
+                "RFQ 108", "DEF", "0.70", "85", TO_BE_REVIEWED, "SG");
         RFQ r10 = new RFQ("109", "209", "2020-04-01", "julia.doe@gmail.com",
                 "RFQ 109", "EFG", "0.02", "55", REVIEWED, "AU");
+        RFQ r11 = new RFQ("110", "210", "2020-04-16", "jake.doe@gmail.com",
+                "RFQ 110", "TUV", "0.12", "68", REVIEWED, "AU");
+        RFQ r12 = new RFQ("111", "211", "2020-04-16", "james.doe@gmail.com",
+                "RFQ 111", "OPQ", "0.25", "45", TO_BE_REVIEWED, "SG");
+        RFQ r13 = new RFQ("112", "212", "2020-04-13", "julia.doe@gmail.com",
+                "RFQ 112", "JKL", "0.05", "1000", IN_REVIEW, "US");
+        RFQ r14 = new RFQ("113", "213", "2020-04-15", "james.doe@gmail.com",
+                "RFQ 113", "Product CV", "0.87", "850", REVIEWED, "AU");
+        RFQ r15 = new RFQ("114", "214", "2020-04-11", "julia.doe@gmail.com",
+                "RFQ 114", "Product EM", "0.35", "125", IN_REVIEW, "EU");
 
         List<RFQ> rfqList = new ArrayList<RFQ>(
-                Arrays.asList(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10));
+                Arrays.asList(r1, r2, r3, r4, r5, r6, r7, r8, r9, r10, r11, r12, r13, r14, r15));
 
         return rfqList;
     }
 
     static List<RFQ> generateExceptionList(){
         RFQ r1 = new RFQ("110", "200", "2020-04-12", "john.doe@gmail.com",
-                "RFQ 110", "MNO", "0.5", "100", IN_REVIEW, "SG");
+                "RFQ 110", "MNO", "0.50", "100", IN_REVIEW, "SG");
         RFQ r2 = new RFQ("111", "201", "2020-04-11", "jane.doe@gmail.com",
-                "RFQ 111", "RST", "0.1", "10", REVIEWED, "SG");
+                "RFQ 111", "RST", "0.10", "10", REVIEWED, "SG");
         RFQ r3 = new RFQ("112", "202", "2020-04-12", "kay.doe@gmail.com",
                 "RFQ 112", "UVW", "0.03", "200", TO_BE_REVIEWED, "US");
 
