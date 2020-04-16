@@ -163,19 +163,19 @@ public class Main {
             result = result.stream().filter(subjectFilter).collect(Collectors.toList());;
         }
         if(rfqRequest.getProductFilter().size() > 0){
-            result = rfqList.stream().filter(productFilter).collect(Collectors.toList());;
+            result = result.stream().filter(productFilter).collect(Collectors.toList());;
         }
         if(rfqRequest.getPercentageFilter().size() > 0){
-            result = rfqList.stream().filter(percentageFilter).collect(Collectors.toList());;
+            result = result.stream().filter(percentageFilter).collect(Collectors.toList());;
         }
         if(rfqRequest.getQuantityFilter().size() > 0){
-            result = rfqList.stream().filter(quantityFilter).collect(Collectors.toList());;
+            result = result.stream().filter(quantityFilter).collect(Collectors.toList());;
         }
         if(rfqRequest.getQuoteStatusFilter().size() > 0){
-            result = rfqList.stream().filter(quoteStatusFilter).collect(Collectors.toList());;
+            result = result.stream().filter(quoteStatusFilter).collect(Collectors.toList());;
         }
         if(rfqRequest.getMarketFilter().size() > 0){
-            result = rfqList.stream().filter(marketFilter).collect(Collectors.toList());;
+            result = result.stream().filter(marketFilter).collect(Collectors.toList());;
         }
 
         return result;
