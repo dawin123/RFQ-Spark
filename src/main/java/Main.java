@@ -228,12 +228,12 @@ public class Main {
     }
 
     static List<RFQ> generateExceptionList(){
-        RFQ r1 = new RFQ("110", "200", "2020-04-12", "john.doe@gmail.com",
-                "RFQ 110", "MNO", "0.50", "100", IN_REVIEW, "SG");
-        RFQ r2 = new RFQ("111", "201", "2020-04-11", "jane.doe@gmail.com",
-                "RFQ 111", "RST", "0.10", "10", REVIEWED, "SG");
-        RFQ r3 = new RFQ("112", "202", "2020-04-12", "kay.doe@gmail.com",
-                "RFQ 112", "UVW", "0.03", "200", TO_BE_REVIEWED, "US");
+        RFQ r1 = new RFQ("210", "300", "2020-04-12", "john.doe@gmail.com",
+                "RFQ 210", "MNO", "0.50", "100", IN_REVIEW, "SG");
+        RFQ r2 = new RFQ("211", "301", "2020-04-11", "jane.doe@gmail.com",
+                "RFQ 211", "RST", "0.10", "10", REVIEWED, "SG");
+        RFQ r3 = new RFQ("212", "302", "2020-04-12", "kay.doe@gmail.com",
+                "RFQ 212", "UVW", "0.03", "200", TO_BE_REVIEWED, "US");
 
         List<RFQ> rfqList = new ArrayList<RFQ>(
                 Arrays.asList(r1, r2, r3));
